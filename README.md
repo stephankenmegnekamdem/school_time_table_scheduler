@@ -53,11 +53,11 @@ Both commands should print a version number.
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourname/school-timetable-generator.git
+git clone git@github.com:stephankenmegnekamdem/school_time_table_scheduler.git
+git clone https://github.com/stephankenmegnekamdem/school_time_table_scheduler.git
 cd school-timetable-generator
 ```
 
-Replace the URL with the repository's actual address.
 
 ## Running the program
 

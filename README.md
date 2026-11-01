@@ -118,6 +118,8 @@ The program prints one of two outcomes:
 Finally, it lists the fixed lessons and the number of classes and teachers.
 
 ### Example session (abbreviated)
+
+```
 Enter the number of subjects for each class
 Enter number of subjects for class 1: 2
 Enter subject name: Math
@@ -133,6 +135,7 @@ Enter the number of absences for Anna
 Is Anna a class teacher? (yes/no): yes
 Which class is Anna the class teacher of? (1-6): 1
 ...
+```
 
 ## How the timetable works
 
@@ -182,6 +185,8 @@ Rule 5 is the strictest: a timetable with missing or extra hours is not counted 
 ## Output
 
 A class in the timetable looks like this:
+
+```
 ========== CLASS 1 ==========
 
 Day 1
@@ -190,6 +195,7 @@ Period 2: EMPTY
 Period 3: English - Ben
 ...
 Period 1: Rel - Clara [FIXED]
+```
 
 - `EMPTY` means no lesson was placed in that slot. This is only acceptable when a class has more free slots than required hours.
 - `[FIXED]` marks Rel, Socialhour, and Arts lessons.
@@ -206,26 +212,29 @@ The best-attempt analysis shows:
 Lower values are better. A valid timetable has all of them at zero.
 
 ## Project structure
+
+```
 school-timetable-generator/
 ├── src/
-│ ├── Main.java Entry point: input, generation, output
-│ ├── InputManager.java Collects classes, subjects, teachers, eligibility
-│ ├── School.java Holds classes, teachers, eligibilities, assignments
-│ ├── SchoolClass.java One class: number, subjects, class teacher
-│ ├── Subject.java Subject name and required hours
-│ ├── Teacher.java Teacher name and absence slots
-│ ├── TeachingEligibility.java Teacher may teach subject in class
-│ ├── TeachingAssignment.java Teacher-class-subject-hours record (not currently used)
-│ ├── LessonRequest.java One required hour of a subject for a class
-│ ├── Lesson.java A placed lesson: subject, teacher, class, fixed flag
-│ ├── Timetable.java The 180-slot grid, lookups, copying, printing
-│ ├── TimeSlot.java Day/period pair (not currently used)
-│ ├── FixedLessonManager.java Places and validates Rel, Socialhour, Arts
-│ ├── Scheduler.java Builds, scores, and repeats timetable attempts
-│ ├── TimetableScore.java Penalty-based score for an attempt
-│ └── TimetableValidator.java Checks all hard rules
+│   ├── Main.java                  Entry point: input, generation, output
+│   ├── InputManager.java          Collects classes, subjects, teachers, eligibility
+│   ├── School.java                Holds classes, teachers, eligibilities, assignments
+│   ├── SchoolClass.java           One class: number, subjects, class teacher
+│   ├── Subject.java               Subject name and required hours
+│   ├── Teacher.java               Teacher name and absence slots
+│   ├── TeachingEligibility.java   Teacher may teach subject in class
+│   ├── TeachingAssignment.java    Teacher-class-subject-hours record (not currently used)
+│   ├── LessonRequest.java         One required hour of a subject for a class
+│   ├── Lesson.java                A placed lesson: subject, teacher, class, fixed flag
+│   ├── Timetable.java             The 180-slot grid, lookups, copying, printing
+│   ├── TimeSlot.java              Day/period pair (not currently used)
+│   ├── FixedLessonManager.java    Places and validates Rel, Socialhour, Arts
+│   ├── Scheduler.java             Builds, scores, and repeats timetable attempts
+│   ├── TimetableScore.java        Penalty-based score for an attempt
+│   └── TimetableValidator.java    Checks all hard rules
 ├── .gitignore
 └── README.md
+```
 
 ## How the program works internally
 
